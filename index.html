@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TST Token | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+
+    <header class="p-3 bg-dark text-white mb-5">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <h3>TST Dasboard        </h3>
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="https://docs.binance.org/smart-chain/developer/rpc.html" class="nav-link px-2 text-white btn btn-outline-secondary mx-2">BSC testnet rpc</a></li>
+              <li><a class="nav-link px-2 mx-2 text-white btn btn-outline-secondary" href="https://testnet.bscscan.com/address/0x29dC51d1481A0141F5238d8D3d03bba95bE3CB0A">  TST on bsc  </a></li>
+            </ul>
+    
+            <div class="text-end">
+              <button onclick="enableEth()" id="connection" type="button" class="btn btn-warning">Connect</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <p id="address" class="text-center d-flex justify-content-center align-items-center p-2 shadow-sm text-primary">not connected</p>
+        <div class="text-center row">
+            <div class="col-sm-12 col-lg-6 my-2">
+                <div class="h-100 p-5 bg-light border rounded-3">
+                    <h2>GAS Balance</h2>
+                    <p>Native token balance on your account</p>
+                    <button onclick="getBalance()" class="btn btn-outline-secondary" type="button">Balance</button>
+                    <p id="showGas" class="text-danger small shadow-sm text-center my-3 p-2"></p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6 my-2">
+                <div class="h-100 p-5 bg-light border rounded-3">
+                    <h2>TST Balance</h2>
+                    <p>TST token balance on your account</p>
+                    <button onclick="ERC20Balance()" id="" class="btn btn-outline-secondary" type="button">TST Balance</button>
+                    <p id="showTST" class="text-danger small shadow-sm text-center my-3 p-2"></p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6 my-2">
+                <div class="h-100 p-5 bg-light border rounded-3">
+                    <h2>Total TST</h2>
+                    <p>Total TST token</p>
+                    <button onclick="totalTST()" id="" class="btn btn-outline-secondary" type="button">Total TST</button>
+                    <p id="showTotal" class="text-danger small shadow-sm text-center my-3 p-2"></p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6 my-2">
+                <div class="h-100 p-5 bg-light border rounded-3">
+                    <h2>Mint TST (custom amount)</h2>
+                    <input class="numinput shadow" type="number" min="0" step="1" name="t1" id="t1" value="0" class="input">
+                    <button onclick="theMint2(document.getElementById('t1').value)" class="btn btn-outline-secondary" type="button">Mint TST</button>
+                    <p class="text-danger small shadow-sm text-center my-3 p-2">amount can be a percent of piece, like: <b>1.2</b></p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-12 my-2">
+                <div class="h-100 p-5 bg-light border rounded-3 text-center">
+                    <h2>Transfer TST (custom amount)</h2>
+                    <input class="numinput shadow" type="number" min="0" step="1" name="tr1" id="tr1" value="0" class="input">
+                    <input class="numinput shadow" type="text" name="tr2" id="tr2" value="" placeholder="0x5c91F36432D4DD8Eb0050B6f827Dfe83E92a8597" class="input">
+                    <button onclick="tstTransfer(document.getElementById('tr1').value, document.getElementById('tr2').value)" class="btn btn-outline-secondary" type="button">Transfer TST</button>
+                    <p class="text-danger small shadow-sm text-center my-3 p-2">amount can be a percent of piece, like: <b>1.2</b></p>
+                    <p id="showTransfer" class="text-danger small shadow-sm text-center my-3 p-2"></p>
+                </div>
+            </div>
+        </div>
+      </main>
+
+      <div class="container mt-5">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"> _ </li>
+            <li class="nav-item"><a href="https://testnet.bscscan.com/address/0x29dC51d1481A0141F5238d8D3d03bba95bE3CB0A" class="nav-link px-2 text-muted">TST on BSC</a></li>
+            <li class="nav-item"> _ </li>
+            <li class="nav-item"><a href="https://docs.binance.org/smart-chain/developer/rpc.html" class="nav-link px-2 text-muted">BSC testnet rpc</a></li>
+          </ul>
+          <p class="text-center text-muted small">© 2022 - TST Token Dashboard</p>
+        </footer>
+      </div>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script src="./main.js"></script>
+
+</body>
+</html>
