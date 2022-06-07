@@ -4,14 +4,16 @@ simple dapp - for using for erc20 custom token as/is a dashboard
 ***
 
 ### chain id
+```js
 const { chainId } = await provider.getNetwork()
 console.log(chainId) // 1 = ethereum mainnet
 
 getNetwork().name // gives human readable name like 'ethereum'
-
+```
 *** 
 
 ### use json rpc
+```js
 import { ethers } from 'ethers';
 
 const provider = new ethers.providers.StaticJsonRpcProvider(
@@ -24,3 +26,4 @@ const provider = new ethers.providers.StaticJsonRpcProvider(
   console.log('yeh');
   console.log(result);
 })();
+```
