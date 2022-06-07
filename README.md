@@ -1,6 +1,8 @@
 # ERC20-Dapp
 simple dapp - for using for erc20 custom token as/is a dashboard
 
+BSC testnet = [here](https://testnet.bscscan.com/address/0x29dC51d1481A0141F5238d8D3d03bba95bE3CB0A#code) 
+
 ***
 
 ### chain id
