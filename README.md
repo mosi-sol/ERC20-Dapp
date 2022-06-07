@@ -17,7 +17,7 @@ getNetwork().name // gives human readable name like 'ethereum'
 import { ethers } from 'ethers';
 
 const provider = new ethers.providers.StaticJsonRpcProvider(
-  'https://mainnet.infura.io/v3/123456789000000.....000'
+  'https://mainnet.infura.io/v3/123456789000000.....000' // not use infura for more security, i use alchemy.io
 );
 
 (async () => {
